@@ -24,7 +24,7 @@ async def on_ready():
                 async for message in channel.history(limit=None):
                     if message.author.bot:
                         continue
-                    if re.search(r'\bcreatine\b', message.content.lower()):
+                    if re.search(r'\bnigger\b', message.content.lower()):
                         word_counts[message.author.display_name] += 1
             except discord.Forbidden:
                 print(f'No access to #{channel.name}, skipping...')
