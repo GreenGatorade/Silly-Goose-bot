@@ -1,6 +1,7 @@
 import discord
 from collections import defaultdict
 import os
+import re
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -23,7 +24,7 @@ async def on_ready():
                 async for message in channel.history(limit=None):
                     if message.author.bot:
                         continue
-                    if TRACKED_WORD in message.content.lower().split():
+                    if re.search(r'\bcreatine\b', message.content.lower()):
                         word_counts[message.author.display_name] += 1
             except discord.Forbidden:
                 print(f'No access to #{channel.name}, skipping...')
