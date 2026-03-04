@@ -33,6 +33,8 @@ async def on_ready():
                         word_counts[message.author.display_name] += 1
             except discord.Forbidden:
                 print(f'No access to #{channel.name}, skipping...')
+            except discord.HTTPException as e:
+                print(f'Error scanning #{channel.name}: {e}, skipping...')
 
     print('Finished scanning history!')
 
