@@ -58,4 +58,4 @@ async def on_message(message):
         last_word = message.content.strip().split()[-1]
         await message.channel.send(f"{last_word}? I hardly know her!")
 
-client.run(os.getenv("MTQ3ODU5MjE2NTM1MjU3NTA2OQ.GuS0hF.hb_saK7E6dQmyfQbe-gfBfqhUCpOOO7bdTRoq4"))
+client.run(os.getenv("TOKEN"))
