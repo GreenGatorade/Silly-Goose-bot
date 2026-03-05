@@ -3,6 +3,7 @@ from collections import defaultdict
 import os
 import re
 import json
+import asyncio
 from datetime import datetime
 
 intents = discord.Intents.default()
@@ -31,7 +32,10 @@ def get_word_counts():
 
 @client.event
 async def on_ready():
-    print(f'Logged in as {client.user}. Scanning message history...')
+    print(f'Logged in as {client.user}. Starting background scan...')
+    asyncio.create_task(scan_history())
+
+async def scan_history():
     for guild in client.guilds:
         for channel in guild.text_channels:
             try:
@@ -44,14 +48,13 @@ async def on_ready():
                             "message": message.content,
                             "timestamp": message.created_at.isoformat()
                         })
+                        save_log()
             except discord.Forbidden:
                 print(f'No access to #{channel.name}, skipping...')
             except discord.HTTPException as e:
                 print(f'Error scanning #{channel.name}: {e}, skipping...')
-
-    save_log()
-    print(f'Finished scanning history! Logged {len(message_log)} messages.')
-
+    print(f'Finished scanning! Logged {len(message_log)} messages.')
+    
 @client.event
 async def on_message(message):
     if message.author == client.user:
