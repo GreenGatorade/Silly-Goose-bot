@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Message Log</title>
+</head>
+<body>
+  <h1>Message Log</h1>
+  <% if @messages.empty? %>
+    <p>No messages logged yet.</p>
+  <% else %>
+    <table border="1" cellpadding="8">
+      <tr>
+        <th>User</th>
+        <th>Message</th>
+        <th>Timestamp</th>
+      </tr>
+      <% @messages.each do |m| %>
+        <tr>
+          <td><%= m['user'] %></td>
+          <td><%= m['message'] %></td>
+          <td><%= m['timestamp'] %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</body>
+</html>
+  index.erb
