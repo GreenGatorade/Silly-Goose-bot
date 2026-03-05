@@ -1,1 +1,1 @@
-web: bundle exec ruby myapp.rb & python bot.py
+web: python bot.py & bundle exec ruby myapp.rb
