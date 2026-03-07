@@ -1,1 +1,1 @@
-web: python bot.py & ruby myapp.rb
+web: python3 bot.py & ruby myapp.rb
