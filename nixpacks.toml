@@ -1,5 +1,8 @@
 [phases.setup]
-nixPkgs = ["python312", "ruby"]
+nixPkgs = ["python312", "ruby", "python312Packages.pip"]
+
+[phases.install]
+cmds = ["pip install -r requirements.txt", "bundle install"]
 
 [start]
 cmd = "python3 bot.py & ruby myapp.rb"
