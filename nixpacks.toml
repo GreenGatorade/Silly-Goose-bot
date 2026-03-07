@@ -2,7 +2,7 @@
 nixPkgs = ["python3", "ruby"]
 
 [phases.install]
-cmds = ["pip install -r requirements.txt", "bundle install"]
+cmds = ["pip3 install -r requirements.txt", "bundle install"]
 
 [start]
 cmd = "python3 bot.py & ruby myapp.rb"
