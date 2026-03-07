@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["python312", "ruby_3_4"]
+nixPkgs = ["python312", "ruby"]
 
 [start]
 cmd = "python3 bot.py & ruby myapp.rb"
