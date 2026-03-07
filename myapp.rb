@@ -3,13 +3,7 @@ require 'json'
 
 set :port, (ENV['PORT'] || 4567).to_i
 set :bind, '0.0.0.0'
-
-# Disable only host authorization (needed for Railway's proxy)
-# All other protections (CSRF, clickjacking, etc.) remain active
-set :protection, except: :host_authorization
-
-# Allow Railway's internal proxy IP
-set :trusted_proxies, /100\.64\./
+set :protection, false
 
 # Create messages.json if it doesn't exist yet
 File.write('messages.json', '[]') unless File.exist?('messages.json')
