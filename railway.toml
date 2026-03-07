@@ -1,2 +1,2 @@
 [deploy]
-startCommand = "python3 bot.py & ruby myapp.rb"
+startCommand = "ruby myapp.rb & python3 bot.py"
